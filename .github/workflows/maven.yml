@@ -1,0 +1,36 @@
+# This workflow will build a Java project with Maven
+# For more information see: https://help.github.com/actions/language-and-framework-guides/building-and-testing-java-with-maven
+#heroku CLI
+name: Java CI with Maven
+
+on:
+  push:
+    branches: [ dev ]
+  pull_request:
+    branches: [testProd, main ]
+
+jobs:
+  build:
+
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v2
+    - name: Set up JDK 11
+      uses: actions/setup-java@v1
+      with:
+        java-version: 11
+    - name: Build with Maven
+      run: mvn -B package --file pom.xml
+
+      env:
+        spring.data.mongodb.host: mongodb
+
+      spring:
+        application:
+          name: medicineProject
+        data:
+          mongodb.host: localhost
+          mongodb.port: 27017
+          mongodb.uri: mongodb://localhost/medicinecom
+          mongo.repositories.enabled: true

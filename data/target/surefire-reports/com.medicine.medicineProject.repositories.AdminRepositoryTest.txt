@@ -1,0 +1,8 @@
+-------------------------------------------------------------------------------
+Test set: com.medicine.medicineProject.repositories.AdminRepositoryTest
+-------------------------------------------------------------------------------
+Tests run: 4, Failures: 0, Errors: 1, Skipped: 0, Time elapsed: 8.158 s <<< FAILURE! - in com.medicine.medicineProject.repositories.AdminRepositoryTest
+com.medicine.medicineProject.repositories.AdminRepositoryTest.updateAdminDetailsTest  Time elapsed: 0.041 s  <<< ERROR!
+java.util.NoSuchElementException: No value present
+	at com.medicine.medicineProject.repositories.AdminRepositoryTest.updateAdminDetailsTest(AdminRepositoryTest.java:84)
+

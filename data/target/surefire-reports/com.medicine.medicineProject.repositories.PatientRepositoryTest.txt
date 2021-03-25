@@ -1,0 +1,28 @@
+-------------------------------------------------------------------------------
+Test set: com.medicine.medicineProject.repositories.PatientRepositoryTest
+-------------------------------------------------------------------------------
+Tests run: 7, Failures: 2, Errors: 2, Skipped: 0, Time elapsed: 0.517 s <<< FAILURE! - in com.medicine.medicineProject.repositories.PatientRepositoryTest
+com.medicine.medicineProject.repositories.PatientRepositoryTest.findAllCustomersTest  Time elapsed: 0.064 s  <<< ERROR!
+org.springframework.data.mapping.MappingException: Cannot create a reference to an object with a NULL id.
+	at com.medicine.medicineProject.repositories.PatientRepositoryTest.findAllCustomersTest(PatientRepositoryTest.java:77)
+
+com.medicine.medicineProject.repositories.PatientRepositoryTest.test_find_from_userRepo  Time elapsed: 0.175 s  <<< ERROR!
+org.springframework.dao.IncorrectResultSizeDataAccessException: Query { "$java" : Query: { "email" : "raph@gmail.com"}, Fields: {}, Sort: {} } returned non unique result.
+	at com.medicine.medicineProject.repositories.PatientRepositoryTest.test_find_from_userRepo(PatientRepositoryTest.java:155)
+
+com.medicine.medicineProject.repositories.PatientRepositoryTest.findCustomerByEmailTest  Time elapsed: 0.039 s  <<< FAILURE!
+org.opentest4j.AssertionFailedError: 
+
+Expecting:
+ <"ymail@gmail.com">
+to be equal to:
+ <"email@gmail.com">
+but was not.
+	at com.medicine.medicineProject.repositories.PatientRepositoryTest.findCustomerByEmailTest(PatientRepositoryTest.java:127)
+
+com.medicine.medicineProject.repositories.PatientRepositoryTest.deleteCustomerByIdTest  Time elapsed: 0.019 s  <<< FAILURE!
+org.opentest4j.AssertionFailedError: 
+
+Expecting value to be true but was false
+	at com.medicine.medicineProject.repositories.PatientRepositoryTest.deleteCustomerByIdTest(PatientRepositoryTest.java:110)
+
