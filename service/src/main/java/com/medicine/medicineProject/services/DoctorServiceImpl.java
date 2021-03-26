@@ -13,7 +13,7 @@ import com.medicine.medicineProject.exceptions.UserDoesNotExistException;
 import com.medicine.medicineProject.models.Doctor;
 import com.medicine.medicineProject.repositories.DoctorRepository;
 import com.medicine.medicineProject.utils.MailValidator;
-import com.medicine.medicineProject.service.UserPrincipalService;
+//import com.medicine.medicineProject.service.UserPrincipalService;
 import lombok.Data;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
@@ -31,14 +31,14 @@ public class DoctorServiceImpl implements DoctorService{
     @Autowired
     RegisterDtoMapper registerDtoMapper;
 
-    @Autowired
-    UserService userService;
+//    @Autowired
+//    UserService userService;
 
     @Autowired
     private MailValidator mailValidator;
 
-    @Autowired
-    private UserPrincipalService userPrincipalService;
+//    @Autowired
+//    private UserPrincipalService userPrincipalService;
 
     PasswordEncoder passwordEncoder = new BCryptPasswordEncoder();
 
@@ -83,7 +83,7 @@ public class DoctorServiceImpl implements DoctorService{
     private Doctor registerDoctor(RegisterDto registerDto){
             Doctor newDoctor = RegisterDtoMapper.createDoctorFrom(registerDto);
             newDoctor.setPassword((passwordEncoder.encode(newDoctor.getPassword())));
-            userService.saveUser(newDoctor);
+//            userService.saveUser(newDoctor);
             return save(newDoctor);
         }
     }

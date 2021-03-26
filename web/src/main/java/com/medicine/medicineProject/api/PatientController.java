@@ -8,7 +8,7 @@ import com.medicine.medicineProject.exceptions.UpdateUserException;
 import com.medicine.medicineProject.models.Patient;
 import com.medicine.medicineProject.response.ApiResponse;
 import com.medicine.medicineProject.services.PatientService;
-import com.medicine.medicineProject.service.TokenProviderServiceImpl;
+//import com.medicine.medicineProject.service.TokenProviderServiceImpl;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -27,8 +27,8 @@ public class PatientController {
     @Autowired
     PatientService patientService;
 
-    @Autowired
-    TokenProviderServiceImpl tokenProviderService;
+//    @Autowired
+//    TokenProviderServiceImpl tokenProviderService;
 
 
     @CrossOrigin("localhost:3000")
@@ -44,23 +44,23 @@ public class PatientController {
         return new ResponseEntity<>(new ApiResponse(true, "Registered successfully"), HttpStatus.CREATED);
     }
 
-    @PatchMapping("/updateProfile")
-    @PreAuthorize("hasRole('CUSTOMER')")
-    public ResponseEntity<?> updateProfile(@Valid @RequestBody PatientUpdateDto patientUpdateDto, @RequestHeader("Authorization") String userToken) throws InvocationTargetException, NoSuchMethodException, UpdateUserException, IllegalAccessException {
-        log.info("got here");
-
-        Patient updatedPatient;
-        try {
-            String userUniqueToken = tokenProviderService.getEmailFromToken(userToken);
-            System.out.println(userUniqueToken);
-            updatedPatient = patientService.updateProfile(patientUpdateDto, userUniqueToken);
-        } catch (IllegalAccessException | NoSuchMethodException | InvocationTargetException
-                | UpdateUserException exe) {
-            return ResponseEntity.badRequest().body(exe.getMessage());
-        }
-
-        return ResponseEntity.ok(updatedPatient);
-    }
+//    @PatchMapping("/updateProfile")
+//    @PreAuthorize("hasRole('CUSTOMER')")
+//    public ResponseEntity<?> updateProfile(@Valid @RequestBody PatientUpdateDto patientUpdateDto, @RequestHeader("Authorization") String userToken) throws InvocationTargetException, NoSuchMethodException, UpdateUserException, IllegalAccessException {
+//        log.info("got here");
+//
+//        Patient updatedPatient;
+//        try {
+////            String userUniqueToken = tokenProviderService.getEmailFromToken(userToken);
+////            System.out.println(userUniqueToken);
+////            updatedPatient = patientService.updateProfile(patientUpdateDto, userUniqueToken);
+//        } catch (IllegalAccessException | NoSuchMethodException | InvocationTargetException
+//                | UpdateUserException exe) {
+//            return ResponseEntity.badRequest().body(exe.getMessage());
+//        }
+//
+//        return ResponseEntity.ok(updatedPatient);
+//    }
 
 
 }

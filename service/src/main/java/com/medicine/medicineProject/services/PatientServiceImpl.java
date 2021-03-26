@@ -10,7 +10,7 @@ import com.medicine.medicineProject.exceptions.UpdateUserException;
 import com.medicine.medicineProject.models.Patient;
 import com.medicine.medicineProject.models.Role;
 import com.medicine.medicineProject.repositories.PatientRepository;
-import com.medicine.medicineProject.service.UserPrincipalService;
+//import com.medicine.medicineProject.service.UserPrincipalService;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -29,14 +29,14 @@ import java.util.Optional;
 @Valid
 public class PatientServiceImpl implements PatientService {
 
-    @Autowired
-    private UserPrincipalService userPrincipalService;
+//    @Autowired
+//    private UserPrincipalService userPrincipalService;
 
     @Autowired
     PatientRepository patientRepository;
 
-    @Autowired
-    UserServiceImpl userService;
+//    @Autowired
+//    UserServiceImpl userService;
 
     @Autowired
     RegisterDtoMapper registerDtoMapper;
@@ -131,7 +131,7 @@ public class PatientServiceImpl implements PatientService {
         newPatient.setRoles(roles);;
         newPatient.setPassword(passwordEncoder.encode(newPatient.getPassword()));
 
-        userService.saveUser(newPatient);
+//        userService.saveUser(newPatient);
         log.info("hashed password after sign up -> {}", newPatient.getPassword());
         return save(newPatient);
     }
